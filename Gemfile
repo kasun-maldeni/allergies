@@ -4,4 +4,5 @@ ruby '2.6.5'
 
 group :development do
   gem 'rspec'
+  gem 'guard-rspec'
 end
