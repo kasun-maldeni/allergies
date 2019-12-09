@@ -58,4 +58,18 @@ describe Allergies do
       end
     end
   end
+
+  context 'with an invalid score' do
+    it 'should raise an error when score is not an integer' do
+      expect { Allergies.new('not an integer') }.to raise_error('invalid score')
+    end
+
+    it 'should raise an error when score is less than 0' do
+      expect { Allergies.new(-1) }.to raise_error('invalid score')
+    end
+
+    it 'should raise an error when score is greater than 255' do
+      expect { Allergies.new(256) }.to raise_error('invalid score')
+    end
+  end
 end
