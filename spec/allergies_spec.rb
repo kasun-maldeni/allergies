@@ -38,4 +38,24 @@ describe Allergies do
       end
     end
   end
+
+  context 'when score is equal to 191' do
+    let(:allergies) { Allergies.new(191) }
+
+    describe '#allergic_to?' do
+      it 'should return true for chocolate' do
+        expect(allergies.allergic_to?('chocolate')).to be true
+      end
+    
+      it 'should return false for pollen' do
+        expect(allergies.allergic_to?('pollen')).to be false
+      end
+    end
+  
+    describe '#list' do
+      it 'should return a list containing chocolate and peanuts' do
+        expect(allergies.list).to include('eggs', 'peanuts', 'shellfish', 'strawberries', 'tomatoes', 'chocolate', 'cats')
+      end
+    end
+  end
 end
