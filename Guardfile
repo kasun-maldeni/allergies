@@ -28,6 +28,9 @@ guard :rspec, cmd: "bundle exec rspec" do
   require "guard/rspec/dsl"
   dsl = Guard::RSpec::Dsl.new(self)
 
+  # Watch Allergies source file
+  watch('./allergies.rb') { 'spec/allergies_spec.rb' }
+
   # Feel free to open issues for suggestions and improvements
 
   # RSpec files
